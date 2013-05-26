@@ -3,8 +3,7 @@ java8-plugin-persitent-local-vars
 
 A plugin for javac (openJDK8) that adds support for persistent local variables in Java (similar to the C static keyword in a method's scope)
 
-WHAT IT IS
-============
+## What it is
 
 Similar to the C99 *static* keyword, it serves to indicate a local variable that should persist through invocations to the method. Currently, that variable is initialized when :
 
@@ -15,19 +14,20 @@ In future iterations of the plugin, support for initialization only when the met
 
 As such, since this plugin can not change the javac parser, only the subsequently generated Abstract Syntax Tree, I resorted to annotation to achieve this purpose. The annotation is @Persistent (arguably not the best name, but had no better idea...).
 
-REQUIREMENTS
-============
+
+##Requirements
+
 - openJDK8 javac (-source 1.8)
 
-HOW TO USE
-==========
+
+## How to use
 
 You need to add the plugin *.jar* to the classpath using *-cp* and then request the usage of the plugin with *-Xplugin:Persistent_Plugin*. If everything is correct and the plugin is running, *"Plugin Running!"* should be print by javac.
 
     javac8 -cp .\persistentplugin-0.0.1-SNAPSHOT.jar -Xplugin:Persistent_Plugin *.java
 
-EXAMPLE USAGE
-=============
+
+## Example of usage
 
 ```java
 class Clazz {
@@ -91,19 +91,21 @@ class Clazz {
 
 }  
 ```  
-    
-WHAT WAS TESTED
-===============
+
+
+## Tested
+
 - static methods
 - non-static methods
 - static methods in inner classes
 - non-static methods in inner classes
 
-WHAT WAS NOT TESTED
-===================
+#### ...not tested
+
 -lambdas/closures with @Persistent variables
 -annoynimous classes
-    
-FUTURE FEATURES / WISHLIST
-==========================
-- None at the moment?
+
+
+## Future features / wishlist?
+
+- See if it works on lambdas/closures and annonymous classes
