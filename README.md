@@ -104,8 +104,8 @@ class Clazz {
 
 #### ...not tested
 
--lambdas/closures with @Persistent variables
--annoynimous classes
+- lambdas/closures with @Persistent variables
+- annoynimous classes
 
 
 ## Future features / wishlist?
