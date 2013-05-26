@@ -1,0 +1,110 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>persistentplugin</groupId>
+  <artifactId>persistentplugin</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  
+  <profiles>
+		<profile>
+			<id>windows</id>
+			<activation>
+				<os>
+					<family>Windows</family>
+				</os>
+			</activation>
+			<properties>
+				<tools.jar>${JDK_8_HOME}\lib\tools.jar</tools.jar> 
+			</properties>
+		</profile>
+		<profile>
+			<id>linux</id>
+			<activation>
+				<os>
+					<family>unix</family>
+				</os>
+			</activation>
+			<properties>
+				<tools.jar>${java.home}/../lib/tools.jar</tools.jar>
+			</properties>
+		</profile>
+		<profile>
+			<id>macosx</id>
+			<activation>
+				<os>
+					<family>mac os x</family>
+				</os>
+			</activation>
+			<properties>
+				<tools.jar>${java.home}/../Classes/tools.jar</tools.jar>
+			</properties>
+		</profile>
+	</profiles>
+	
+	
+  <build>
+    <plugins> 
+      <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-shade-plugin</artifactId>
+    <version>1.4</version>
+    <executions>
+      <execution>
+        <phase>package</phase>
+        <goals>
+          <goal>shade</goal>
+        </goals>
+      </execution>
+    </executions>
+  </plugin>    
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <verbose>true</verbose> 
+		        	<fork>true</fork>
+					<executable>${JDK_8_JAVAC}</executable>
+				    <source>1.8</source>
+				    <target>1.8</target>
+        </configuration>
+      </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+                <forkMode>always</forkMode>
+            </configuration>
+        </plugin>
+    </plugins>
+  </build>
+  
+  
+  
+  
+  <dependencies>
+     <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+      <scope>test</scope>
+    </dependency>
+     <dependency>
+			<groupId>com.sun</groupId>
+			<artifactId>tools</artifactId>
+			<version>1.4.2</version>
+			<scope>system</scope>
+			<systemPath>${tools.jar}</systemPath>
+		</dependency>
+  </dependencies>
+  
+  
+ <properties> 
+       <maven.compiler.source>1.8</maven.compiler.source> 
+       <maven.compiler.target>1.8</maven.compiler.target> 
+       <!--maven.test.skip>true</maven.test.skip-->
+       <maven.compiler.showWarnings>true</maven.compiler.showWarnings> 
+       <maven.compiler.showDeprecation>true</maven.compiler.showDeprecation> 
+       <maven.compiler.debuglevel>lines,vars,source</maven.compiler.debuglevel> 
+       <maven.compiler.verbose>true</maven.compiler.verbose> 
+ </properties> 
+</project>

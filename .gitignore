@@ -1,1 +1,4 @@
 target/
+.svn
+.settings
+*.class
