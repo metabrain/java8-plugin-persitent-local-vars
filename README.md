@@ -31,6 +31,8 @@ You need to add the plugin *.jar* to the classpath using *-cp* and then request 
 
 ## Example of usage
 
+#### ...in static functions
+
 ```java
 class Clazz {
 
@@ -63,6 +65,8 @@ class Clazz {
     
 The variable is given a random sufix (currently this sufix is the name of the function where it is used) to avoid scope clashes with similar variables from other methods (two methods each with a @Persistent int counter = 0 ; would clach when moved to the class scope without renaming). Similarlly, if this method is not-static, e.g.: an instance method, the generated variable would not be static.
 
+
+#### ...in non-static functions
 
 ```java
 class Clazz {
