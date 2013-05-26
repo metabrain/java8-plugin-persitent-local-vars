@@ -17,7 +17,9 @@ As such, since this plugin can not change the javac parser, only the subsequentl
 
 ##Requirements
 
-- openJDK8 javac (-source 1.8)
+- openJDK8 javac (since we need the -Xplugin:... flag)
+- java 1.8 (recommended)
+- java 1.5+ (you can compile with javac8 to lesser versions using -source 1.X -target 1.X . I managed to compile and run the test using -source 1.5 -target 1.5, and it's the minimum possible since you need 1.5 to support annotations. Even tho it runs correctly and the tests show up correct, I didn't develop with 1.5 in mind so beware...)
 
 
 ## How to use
