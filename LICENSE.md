@@ -1,5 +1,4 @@
 The MIT License (MIT)
-
 a Java8 plugin to support persistent local variables.
 
 Copyright (c) 2013 Daniel Parreira(metabrain) dany9995 -at- gmail.com
