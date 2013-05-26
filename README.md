@@ -24,7 +24,7 @@ As such, since this plugin can not change the javac parser, only the subsequentl
 
 ## How to use
 
-You need to add the plugin *.jar* to the classpath using *-cp* and then request the usage of the plugin with *-Xplugin:Persistent_Plugin*. If everything is correct and the plugin is running, *"Plugin Running!"* should be print by javac.
+You need to add the plugin *.jar* to the classpath using *-cp* and then request the usage of the plugin with *-Xplugin:Persistent_Plugin*. If everything is correct and the plugin is running, *"Plugin Running!"* should be outputed by javac.
 
     javac8 -cp .\persistentplugin-0.0.1-SNAPSHOT.jar -Xplugin:Persistent_Plugin *.java
 
