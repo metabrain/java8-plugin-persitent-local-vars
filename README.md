@@ -3,6 +3,10 @@ java8-plugin-persitent-local-vars
 
 A plugin for javac (openJDK8) that adds support for persistent local variables in Java (similar to the [C static keyword](http://stackoverflow.com/questions/5033627/static-variable-inside-of-a-function-in-c))
 
+## Motivation
+
+During the elaboration of my master thesis, that also makes use of a javac plugin, injecting new fields (variable declarations) inside the pre-existing classes AST node would crash the JVM at rtuntime. The reason for this is the need to update the offset field values that are calculated after the initial parsing. This project is, in a way, a proof-of-concept of the injection of new fields inside pre-existing classes during the compilation process.
+
 ## What it is
 
 Similar to the C99 *static* keyword, it serves to indicate a local variable that should persist through invocations to the method. Currently, that variable is initialized when :
