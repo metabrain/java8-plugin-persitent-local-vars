@@ -5,7 +5,8 @@ A plugin for javac (openJDK8) that adds support for persistent local variables i
 
 ## Motivation
 
-During the elaboration of my master thesis, that also makes use of a javac plugin, injecting new fields (variable declarations) inside the pre-existing classes AST node would crash the JVM at rtuntime. The reason for this is the need to update the offset field values that are calculated after the initial parsing. This project is, in a way, a proof-of-concept of the injection of new fields inside pre-existing classes during the compilation process.
+This project is, in a way, a proof-of-concept of the injection of new fields inside pre-existing classes during the compilation process.
+During the elaboration of my master thesis, that also makes use of a javac plugin, injecting new fields (variable declarations) inside the pre-existing classes AST node would crash the JVM at runtime. The reason for this is that the offset field values used by the compiler are calculated after the initial parsing, thus, before the new field was injected. To fix this, the offset values have to be manually updated when the new field is injected. 
 
 ## What it is
 
